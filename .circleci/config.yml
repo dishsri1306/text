@@ -110,7 +110,24 @@ jobs:
           root: dist
           paths:
             - "*"
-
+            
+  binary_linux_wheel_aarch64:
+    machine:
+      image: ubuntu-1604:202007-01
+    steps:
+      - checkout
+      - run:
+          name: Setup Qemu
+          command: |
+            sudo docker run -it --rm --privileged multiarch/qemu-user-static --reset --credential yes --persistent yes
+      - run: |
+            docker run --rm -v `pwd`:/biopython quay.io/pypa/manylinux2014_aarch64 /bin/sh -c cd text && \
+            sudo yum install -y update && sudo yum install -y python-setuptools && \
+            python3 -m pip install wheel && \
+            ls && \
+            pwd && \
+            packaging/build_wheel.sh 
+            
   binary_linux_conda:
     <<: *binary_common
     docker:
