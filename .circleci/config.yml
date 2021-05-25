@@ -112,6 +112,7 @@ jobs:
             - "*"
             
   binary_linux_wheel_aarch64:
+    <<: *binary_common
     machine:
       image: ubuntu-2004:202101-01
     resource_class: arm.medium
