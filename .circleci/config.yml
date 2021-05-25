@@ -644,6 +644,18 @@ workflows:
       - binary_linux_wheel:
           name: binary_linux_wheel_py3.9
           python_version: '3.9'
+      - binary_linux_wheel_aarch64:
+          name: binary_linux_wheel_aarch64_py3.6
+          python_version: '3.6'
+      - binary_linux_wheel_aarch64:
+          name: binary_linux_wheel_aarch64_py3.7
+          python_version: '3.7'
+      - binary_linux_wheel_aarch64:
+          name: binary_linux_wheel_aarch64_py3.8
+          python_version: '3.8'
+      - binary_linux_wheel_aarch64:
+          name: binary_linux_wheel_aarch64_py3.9
+          python_version: '3.9'
       - binary_macos_wheel:
           name: binary_macos_wheel_py3.6
           python_version: '3.6'
