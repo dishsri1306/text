@@ -118,15 +118,15 @@ jobs:
     resource_class: arm.medium
     steps:
       - run: uname -a
-      #- checkout
-      #- designate_upload_channel
-      #- run: packaging/build_wheel.sh
-      #- store_artifacts:
-       #   path: dist
-     # - persist_to_workspace:
-      #    root: dist
-       #   paths:
-        #    - "*" 
+      - checkout
+      - designate_upload_channel
+      - run: packaging/build_wheel.sh
+      - store_artifacts:
+          path: dist
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - "*" 
             
   binary_linux_conda:
     <<: *binary_common
